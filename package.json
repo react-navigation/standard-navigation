@@ -1,0 +1,28 @@
+{
+  "name": "standard-navigation",
+  "version": "0.0.1",
+  "description": "Standard navigation API for navigation libraries",
+  "keywords": [
+    "react-navigation",
+    "expo-router"
+  ],
+  "homepage": "https://github.com/react-navigation/standard-navigation#readme",
+  "bugs": {
+    "url": "https://github.com/react-navigation/standard-navigation/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/react-navigation/standard-navigation.git"
+  },
+  "license": "MIT",
+  "author": "Satyajit Sahoo <satyajit.happy@gmail.com>",
+  "type": "module",
+  "main": "src/index.tsx",
+  "scripts": {
+    "prepare": "tsc"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "typescript": "^6.0.3"
+  }
+}
