@@ -1,4 +1,4 @@
-# Standard Navigator
+# Standard Navigation
 
 A standard API for creating navigators that can work with multiple navigation libraries, such as React Navigation and Expo Router.
 
