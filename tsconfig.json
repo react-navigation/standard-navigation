@@ -5,6 +5,7 @@
     "allowImportingTsExtensions": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
+    "declaration": true,
     "esModuleInterop": true,
     "erasableSyntaxOnly": true,
     "forceConsistentCasingInFileNames": true,
