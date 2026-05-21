@@ -1,6 +1,6 @@
 {
   "name": "standard-navigation",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Standard navigation API for navigation libraries",
   "keywords": [
     "react-navigation",
@@ -17,7 +17,9 @@
   "license": "MIT",
   "author": "Satyajit Sahoo <satyajit.happy@gmail.com>",
   "type": "module",
-  "main": "src/index.tsx",
+  "files": ["lib"],
+  "main": "lib/src/index.js",
+  "types": "lib/src/index.d.ts",
   "scripts": {
     "prepare": "tsc"
   },
