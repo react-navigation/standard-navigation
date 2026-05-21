@@ -1,3 +1,5 @@
+import * as React from "react";
+
 export type NavigatorEventArg<
   EventName,
   CanPreventDefault extends boolean | undefined = false,
@@ -60,12 +62,8 @@ export type NavigatorArgs<
   descriptors: Record<string, NavigatorDescriptor<NavigatorOptions>>;
   actions: {
     navigate(
-      options:
-        | {
-            name: string;
-            params?: object | undefined;
-          }
-        | { key: string },
+      name: string,
+      params?: object | undefined,
     ): void;
   };
   emitter: {

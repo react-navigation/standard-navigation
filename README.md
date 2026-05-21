@@ -39,7 +39,7 @@ const MyStandardNavigator = createStandardNavigator(
                 return;
               }
 
-              actions.navigate({ key: route.key });
+              actions.navigate(route.name, route.params);
             }}
           >
             {descriptors[route.key].options.title}
@@ -75,7 +75,7 @@ An object mapping each route's `key` to a descriptor for that route:
 
 An object of navigation actions that the navigator can perform:
 
-- `navigate`: Navigates to a route. Accepts either `{ name, params? }` to navigate by route name (optionally with params) or `{ key }` to navigate by route key. When navigating by key, the route's existing params will be preserved.
+- `navigate`: Navigates to a route. Accepts `name` and `params` to navigate by route name and params.
 
 ### `emitter`
 
