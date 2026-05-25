@@ -96,16 +96,16 @@ export function createStandardNavigator<
   NavigatorEventMap extends NavigatorEventMapBase,
   NavigatorProps extends object = {},
 >(
-  render: (
-    options: NavigatorArgs<NavigatorOptions, NavigatorEventMap> &
+  NavigatorContent: React.ComponentType<
+    NavigatorArgs<NavigatorOptions, NavigatorEventMap> &
       Omit<
         NavigatorProps,
         keyof NavigatorArgs<NavigatorOptions, NavigatorEventMap>
-      >,
-  ) => React.ReactNode,
+      >
+  >,
 ) {
   return {
     type: "standard",
-    render,
+    NavigatorContent,
   };
 }
