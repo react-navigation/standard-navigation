@@ -62,7 +62,7 @@ export type NavigatorArgs<
   descriptors: Record<string, NavigatorDescriptor<NavigatorOptions>>;
   actions: {
     navigate(name: string, params?: object | undefined): void;
-    back(count: number): void;
+    back(): void;
   };
   emitter: {
     emit<EventName extends keyof NavigatorEventMap>(
