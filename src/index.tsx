@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 type WithPreventDefault<CanPreventDefault> = CanPreventDefault extends true
   ? {
@@ -78,13 +78,14 @@ export type NavigatorArgs<
   };
   emitter: {
     emit<EventName extends keyof NavigatorEventMap>(
-      options: { type: EventName; target?: string } &
-        WithCanPreventDefault<NavigatorEventMap[EventName]["canPreventDefault"]> &
-        DataField<NavigatorEventMap[EventName]["data"]>,
+      options: { type: EventName; target?: string } & WithCanPreventDefault<
+        NavigatorEventMap[EventName]['canPreventDefault']
+      > &
+        DataField<NavigatorEventMap[EventName]['data']>,
     ): NavigatorEventArg<
       EventName,
-      NavigatorEventMap[EventName]["canPreventDefault"],
-      NavigatorEventMap[EventName]["data"]
+      NavigatorEventMap[EventName]['canPreventDefault'],
+      NavigatorEventMap[EventName]['data']
     >;
   };
 };
@@ -103,7 +104,7 @@ export function createStandardNavigator<
   >,
 ) {
   return {
-    type: "standard",
+    type: 'standard',
     NavigatorContent,
   };
 }
