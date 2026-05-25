@@ -27,5 +27,5 @@
     "useDefineForClassFields": true,
     "verbatimModuleSyntax": true
   },
-  "exclude": ["/lib"]
+  "exclude": ["lib"]
 }
