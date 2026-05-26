@@ -105,6 +105,7 @@ export function createStandardNavigator<
 ) {
   return {
     type: 'standard',
+    version: 1,
     NavigatorContent,
-  };
+  } as const;
 }
