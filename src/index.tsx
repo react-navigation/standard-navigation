@@ -90,22 +90,43 @@ export type NavigatorArgs<
   };
 };
 
+export type StandardNavigatorContent<
+  NavigatorOptions extends {},
+  NavigatorEventMap extends NavigatorEventMapBase,
+  NavigatorProps extends object = {},
+> = React.ComponentType<
+  NavigatorArgs<NavigatorOptions, NavigatorEventMap> &
+    Omit<NavigatorProps, keyof NavigatorArgs<NavigatorOptions, NavigatorEventMap>>
+>;
+
+export type StandardNavigator<
+  NavigatorOptions extends {},
+  NavigatorEventMap extends NavigatorEventMapBase,
+  NavigatorProps extends object = {},
+> = {
+  readonly type: 'standard';
+  readonly version: 1;
+  readonly NavigatorContent: StandardNavigatorContent<
+    NavigatorOptions,
+    NavigatorEventMap,
+    NavigatorProps
+  >;
+};
+
 export function createStandardNavigator<
   NavigatorOptions extends {},
   NavigatorEventMap extends NavigatorEventMapBase,
   NavigatorProps extends object = {},
 >(
-  NavigatorContent: React.ComponentType<
-    NavigatorArgs<NavigatorOptions, NavigatorEventMap> &
-      Omit<
-        NavigatorProps,
-        keyof NavigatorArgs<NavigatorOptions, NavigatorEventMap>
-      >
+  NavigatorContent: StandardNavigatorContent<
+    NavigatorOptions,
+    NavigatorEventMap,
+    NavigatorProps
   >,
-) {
+): StandardNavigator<NavigatorOptions, NavigatorEventMap, NavigatorProps> {
   return {
     type: 'standard',
     version: 1,
     NavigatorContent,
-  } as const;
+  };
 }
