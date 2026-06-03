@@ -58,7 +58,7 @@ export type NavigatorDescriptor<NavigatorOptions extends {}> = {
   render: () => React.ReactNode;
 };
 
-export type NavigatorEventMapBase = Record<
+type NavigatorEventMapBase = Record<
   string,
   {
     data: object | undefined;
