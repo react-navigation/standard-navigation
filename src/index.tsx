@@ -1,35 +1,6 @@
 import * as React from 'react';
 
-type WithPreventDefault<CanPreventDefault> = CanPreventDefault extends true
-  ? {
-      /**
-       * Whether `event.preventDefault()` was called on this event object.
-       */
-      readonly defaultPrevented: boolean;
-      /**
-       * Prevent the default action which happens on this event.
-       */
-      preventDefault(): void;
-    }
-  : {};
-
-type ReadonlyDataField<Data> = undefined extends Data
-  ? { readonly data?: Readonly<Data> }
-  : { readonly data: Readonly<Data> };
-
-type DataField<Data> = undefined extends Data
-  ? { data?: Data }
-  : { data: Data };
-
-type WithCanPreventDefault<CanPreventDefault> = CanPreventDefault extends true
-  ? { canPreventDefault: true }
-  : {};
-
-export type NavigatorEventArg<
-  EventName,
-  CanPreventDefault extends boolean = false,
-  Data = undefined,
-> = {
+export type NavigatorEvent<EventName, Data = undefined> = {
   /**
    * Type of the event (e.g. `tabPress`)
    */
@@ -38,8 +9,19 @@ export type NavigatorEventArg<
    * Key of the route which received the event.
    */
   readonly target?: string;
-} & WithPreventDefault<CanPreventDefault> &
-  ReadonlyDataField<Data>;
+  /**
+   * Whether `event.preventDefault()` was called on this event object.
+   */
+  readonly defaultPrevented?: boolean;
+  /**
+   * Prevent the default action which happens on this event.
+   */
+  preventDefault?(): void;
+  /**
+   * Data associated with the event.
+   */
+  readonly data?: Data;
+};
 
 export type NavigatorRoute = {
   key: string;
@@ -62,7 +44,6 @@ type NavigatorEventMapBase = Record<
   string,
   {
     data: object | undefined;
-    canPreventDefault: boolean;
   }
 >;
 
@@ -78,15 +59,13 @@ export type NavigatorArgs<
   };
   emitter: {
     emit<EventName extends keyof NavigatorEventMap>(
-      options: { type: EventName; target?: string } & WithCanPreventDefault<
-        NavigatorEventMap[EventName]['canPreventDefault']
-      > &
-        DataField<NavigatorEventMap[EventName]['data']>,
-    ): NavigatorEventArg<
-      EventName,
-      NavigatorEventMap[EventName]['canPreventDefault'],
-      NavigatorEventMap[EventName]['data']
-    >;
+      options: {
+        type: EventName;
+        target?: string;
+        canPreventDefault?: boolean;
+        data?: NavigatorEventMap[EventName]['data'];
+      },
+    ): NavigatorEvent<EventName, NavigatorEventMap[EventName]['data']>;
   };
 };
 
