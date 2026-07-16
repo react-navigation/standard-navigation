@@ -17,7 +17,9 @@ type ReadonlyDataField<Data> = undefined extends Data
   ? { readonly data?: Readonly<Data> }
   : { readonly data: Readonly<Data> };
 
-type DataField<Data> = undefined extends Data ? { data?: Data } : { data: Data };
+type DataField<Data> = undefined extends Data
+  ? { data?: Data }
+  : { data: Data };
 
 type WithCanPreventDefault<CanPreventDefault> = CanPreventDefault extends true
   ? { canPreventDefault: true }
@@ -77,13 +79,13 @@ export type NavigatorArgs<
   emitter: {
     emit<EventName extends keyof NavigatorEventMap>(
       options: { type: EventName; target?: string } & WithCanPreventDefault<
-        NavigatorEventMap[EventName]["canPreventDefault"]
+        NavigatorEventMap[EventName]['canPreventDefault']
       > &
-        DataField<NavigatorEventMap[EventName]["data"]>,
+        DataField<NavigatorEventMap[EventName]['data']>,
     ): NavigatorEventArg<
       EventName,
-      NavigatorEventMap[EventName]["canPreventDefault"],
-      NavigatorEventMap[EventName]["data"]
+      NavigatorEventMap[EventName]['canPreventDefault'],
+      NavigatorEventMap[EventName]['data']
     >;
   };
 };
@@ -102,7 +104,7 @@ export type StandardNavigator<
   NavigatorEventMap extends NavigatorEventMapBase,
   NavigatorProps extends object = {},
 > = {
-  readonly type: "standard";
+  readonly type: 'standard';
   readonly version: 1;
   readonly NavigatorContent: StandardNavigatorContent<
     NavigatorOptions,
@@ -116,10 +118,14 @@ export function createStandardNavigator<
   NavigatorEventMap extends NavigatorEventMapBase,
   NavigatorProps extends object = {},
 >(
-  NavigatorContent: StandardNavigatorContent<NavigatorOptions, NavigatorEventMap, NavigatorProps>,
+  NavigatorContent: StandardNavigatorContent<
+    NavigatorOptions,
+    NavigatorEventMap,
+    NavigatorProps
+  >,
 ): StandardNavigator<NavigatorOptions, NavigatorEventMap, NavigatorProps> {
   return {
-    type: "standard",
+    type: 'standard',
     version: 1,
     NavigatorContent,
   };
