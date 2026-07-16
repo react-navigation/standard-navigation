@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      react:
+        specifier: '*'
+        version: 19.2.7
     devDependencies:
       '@types/react':
         specifier: ^19.2.14
@@ -23,6 +27,10 @@ packages:
   csstype@3.2.3:
     resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
 
+  react@19.2.7:
+    resolution: {integrity: sha512-HNe9WslTbXmFK8o8cmwgAeJFSBvt1bPdHCVKtaaV+WlAN36mpT4hcRpwbf3fY56ar2oIXzsBpOAiIRHAdY0OlQ==}
+    engines: {node: '>=0.10.0'}
+
   typescript@6.0.3:
     resolution: {integrity: sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==}
     engines: {node: '>=14.17'}
@@ -35,5 +43,7 @@ snapshots:
       csstype: 3.2.3
 
   csstype@3.2.3: {}
+
+  react@19.2.7: {}
 
   typescript@6.0.3: {}
