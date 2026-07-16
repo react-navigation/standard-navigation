@@ -23,6 +23,9 @@
   "scripts": {
     "prepare": "tsc"
   },
+  "peerDependencies": {
+    "react": "*"
+  },
   "devDependencies": {
     "@types/react": "^19.2.14",
     "typescript": "^6.0.3"
