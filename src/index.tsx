@@ -1,4 +1,4 @@
-import type * as React from "react";
+import type * as React from 'react';
 
 type WithPreventDefault<CanPreventDefault> = CanPreventDefault extends true
   ? {
