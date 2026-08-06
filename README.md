@@ -2,7 +2,7 @@
 
 A standard API for creating navigators that can work with multiple navigation libraries, such as React Navigation and Expo Router.
 
-This package only contains minimal helpers and types. The actual implementation of integrating with this API should live in respective libraries (e.g. React Navigation, Expo Router, etc.).
+This package only contains minimal helpers and types. The actual implementation of integrating with this API should live in respective libraries (e.g. [React Navigation](https://reactnavigation.org/docs/standard-navigator), [Expo Router](https://docs.expo.dev/router/advanced/custom-navigators), etc.).
 
 ## API
 
@@ -96,7 +96,7 @@ The callback function receives an object with the following properties:
 The current navigation state:
 
 - `index`: The index of the currently focused route in `routes`.
-- `routes`: An array of route objects, each containing the following properties:
+- `routes`: An array of route objects to render, each containing the following properties:
   - `key`: A unique key for the route.
   - `name`: The name of the route.
   - `params`: An optional object of params for the route.
